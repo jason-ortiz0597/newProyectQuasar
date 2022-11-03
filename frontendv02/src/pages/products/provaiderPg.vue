@@ -1,11 +1,12 @@
 <template>
+ 
   <div>
-    <div class="q-gutter-y-md">
+    <div class="q-pa-md">
       <q-card>
         <q-tabs
           v-model="tab"
           dense
-          class="text-grey"
+          class="bg-orange text-white shadow-2"
           active-color="primary"
           indicator-color="primary"
           align="justify"
@@ -20,7 +21,7 @@
 
         <q-tab-panels v-model="tab" animated>
           <q-tab-panel name="mails">
-            <div class="text-h6">Mails</div>
+           
             <provaiderAdd />
           </q-tab-panel>
 
@@ -37,6 +38,7 @@
       </q-card>
     </div>
   </div>
+
 </template>
 
 <script>
