@@ -25,7 +25,20 @@
                   class="full-width"
                   v-model="email"
                   type="email"
-                  label="Correo del Proovedor"
+                  label="Correo del Proveedor"
+                />
+              </q-item>
+            </div>
+
+            <div class="col-12">
+              <q-item>
+                <q-input
+                  dense
+                  outlined
+                  class="full-width"
+                  v-model="phone"
+                  type="tel"
+                  label="Telefono Proveedor"
                 />
               </q-item>
             </div>
@@ -55,16 +68,12 @@
               </q-item>
             </div>
 
-              <div class="col-12">
-                <q-item>
-                 <q-select v-model="model" :options="options" label="Standard" filled />
-                </q-item>
-              </div>
+              
           </div>
           <div>
-            <q-btn label="Submit" type="submit" color="primary" />
+            <q-btn label="agregar" type="submit" color="primary" />
             <q-btn
-              label="Reset"
+              label="Cancelar"
               type="reset"
               color="primary"
               flat
@@ -80,8 +89,8 @@
  
 </template>
 <script>
-import { ref,onMounted } from "vue";
-//import { useQuasar } from "quasar";
+import { ref } from "vue";
+import { useQuasar } from "quasar";
 import { useRouter } from "vue-router";
 import { useProvaiderStore } from "stores/productStore/provaider-store";
 import { api } from "src/boot/axios";
@@ -90,10 +99,8 @@ import { api } from "src/boot/axios";
 export default {
   name: "provaiderAdd",
 
-
-
   setup() {
-  //  const $q = useQuasar();
+    const $q = useQuasar();
     const router = useRouter();
     const provaiderStore = useProvaiderStore();
 
@@ -101,33 +108,51 @@ export default {
     const email = ref("");
     const address = ref("");
     const city = ref("");
-    const typeProvaider = ref("");
+    const phone = ref("");
 
-    onMounted(() => {
-      provaiderStore.cargando();
-    });
+
 
     return {
       router,
-   //   $q,
       provaiderStore,
       name,
       email,
       address,
       city,
-      typeProvaider,
+      phone,
+      
 
      
       async onSubmit() {
         try {
-          console.log("onSubmit");
+          const response = await api.post("provaider/create", {
+            name: name.value,
+            email: email.value,
+            address: address.value,
+            city: city.value,
+            phone: phone.value,
+          });
+          $q.notify({
+            message: "Proveedor agregado",
+            color: "positive",
+            position: "top",
+          });
+          provaiderStore.cargando();
+          router.push("/provaider");
+
+         
+
         } catch (error) {
           console.log(error);
         }
       },
 
       onReset() {
-        console.log("onReset");
+        name.value = "";
+        email.value = "";
+        address.value = "";
+        city.value = "";
+        phone.value = "";
       },
     };
   },

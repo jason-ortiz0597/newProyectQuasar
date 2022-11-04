@@ -12,22 +12,22 @@
           align="justify"
           narrow-indicator
         >
-          <q-tab name="mails" label="Mails" />
-          <q-tab name="alarms" label="Alarms" />
+          <q-tab name="provaider" label="Proveedores" />
+          <q-tab name="createProvaider" label="Crear Proveedor" />
           <q-tab name="movies" label="Movies" />
         </q-tabs>
 
         <q-separator />
 
         <q-tab-panels v-model="tab" animated>
-          <q-tab-panel name="mails">
+          <q-tab-panel name="provaider">
            
-            <provaiderAdd />
+            <tableProvaider />
           </q-tab-panel>
 
-          <q-tab-panel name="alarms">
-            <div class="text-h6">Alarms</div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          <q-tab-panel name="createProvaider">
+            
+             <provaiderAdd />
           </q-tab-panel>
 
           <q-tab-panel name="movies">
@@ -44,13 +44,15 @@
 <script>
 import { ref } from "vue";
 import provaiderAdd from "src/components/products/provaiderAdd.vue";
+import tableProvaider from "src/components/products/tableProvaider.vue";
 export default {
   components: {
     provaiderAdd,
+    tableProvaider,
   },
   setup() {
     return {
-      tab: ref("mails"),
+      tab: ref("provaider"),
     };
   },
 };
