@@ -1,5 +1,5 @@
 <template>
-<q-table title="Proveedores" :separator="separator" :rows="provaiderStore.provaiders" :columns="columns"
+<q-table title="Proveedores Unicos" :separator="separator" :rows="provaiderStore.provaiders" :columns="columns"
                          no-data-label="No existen datos para mostrar" row-key="id"
                         :filter="filter">
                         <template v-slot:top-right>
