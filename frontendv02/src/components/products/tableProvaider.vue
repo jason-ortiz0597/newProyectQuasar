@@ -14,7 +14,7 @@
                         <template v-slot:body-cell-actions="props">
                             <q-td :props="props" class="q-ma-none">
                                 
-                                <q-btn icon="border_color" color="primary" flat round @click="myeditProv(props.row)" />
+                                <!-- <q-btn icon="border_color" color="primary" flat round @click="myeditProv(props.row)" /> -->
                                 <q-btn icon="delete_sweep" color="red" flat round @click="mydeleteProv(props.row)" />
                             </q-td>
                         </template>
