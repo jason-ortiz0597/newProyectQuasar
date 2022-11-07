@@ -5,6 +5,10 @@
       src="~assets/quasar-logo-vertical.svg"
       style="width: 200px; height: 200px"
     >
+
+    <div>
+      <h6>Bienvenido Jason</h6>
+    </div>
   </q-page>
 </template>
 
