@@ -69,9 +69,7 @@ module.exports = configure(function (/* ctx */) {
 
       // publicPath: '/',
       // analyze: true,
-      env: {
-        PORT: 3000,
-      },
+      // env: {},
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
