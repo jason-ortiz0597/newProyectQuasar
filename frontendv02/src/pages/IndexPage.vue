@@ -7,7 +7,7 @@
     >
 
     <div>
-      <h6>Bienvenido Jason 123456</h6>
+      <h6>Bienvenido Jason Ortiz Saavedra</h6>
     </div>
   </q-page>
 </template>
