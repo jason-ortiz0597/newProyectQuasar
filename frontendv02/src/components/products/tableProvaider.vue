@@ -19,12 +19,12 @@
                             </q-td>
                         </template>
 
-                        <!--  <template v-slot:body-cell-image="props">
+                          <template v-slot:body-cell-image="props">
                 <q-td :props="props" class="q-ma-none">
                     <q-img :src="props.row.image.secure_url" style="width: 100px; height: 100px;" />
 
                 </q-td>
-            </template> -->
+            </template> 
 
                     </q-table>
 
@@ -78,6 +78,16 @@ const columns = [
         sortable: true,
         field: (row) => row.address,
     },
+
+    {
+        name: "image",
+        label: "Imagen",
+        align: "left",
+        sortable: true,
+        field: (row) => row.image,
+    },
+
+    
 
     {
         name: "actions",
