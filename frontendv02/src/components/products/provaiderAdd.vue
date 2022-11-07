@@ -1,8 +1,8 @@
 <template>
   <q-page  padding>
-    <div class="row q-col-gutter-sm">
+    <div class="row q-col-gutter-sm justify-center">
       <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-        <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
+        <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-lg q-mt-md">
           <div class="row">
             <div class="col-12">
               <q-item>
@@ -70,7 +70,7 @@
 
               
           </div>
-          <div>
+          <div >
             <q-btn label="agregar" type="submit" color="primary" />
             <q-btn
               label="Cancelar"

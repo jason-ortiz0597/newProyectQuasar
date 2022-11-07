@@ -1,14 +1,13 @@
 <template>
   <q-page class="flex flex-center">
+   
     <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
+      alt="Siipi Logo"
+      src="https://res.cloudinary.com/siibolivia/image/upload/v1666980280/product-imagesSiipi/logo_1_aenzpa.png"
       style="width: 200px; height: 200px"
     >
 
-    <div>
-      <h6>Bienvenido Jason Ortiz Saavedra</h6>
-    </div>
+    
   </q-page>
 </template>
 
