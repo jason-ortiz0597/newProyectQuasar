@@ -6,7 +6,7 @@ export const useProvaiderStore = defineStore("provaider", {
     state: () => ({
         provaiders: [],
         message: "",
-        auxiliar: {},
+        imageProvaider: [],
     }),
     // getters: {
     //     getProvaider: (state) => state.provaider,
@@ -35,7 +35,18 @@ export const useProvaiderStore = defineStore("provaider", {
           } catch (error) {
             console.log(error);
           }
+        },
+
+        async viewProvaider (id) {
+          try {
+             const data = this.provaiders.find((provaider) => provaider._id === id);
+             this.imageProvaider = data;
+          } catch (error) {
+            console.log(error);
+          }
         }
+
+
 
 
     },
