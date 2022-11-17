@@ -24,8 +24,8 @@
             v-model="email"
             label="Correo del Proveedor *"
             type="email"
-            >
-            <template v-slot:prepend>
+           
+            ><template v-slot:prepend>
               <q-icon name="email" />
             </template>
             
@@ -36,12 +36,16 @@
             v-model="phone"
             label="Telefono del Proveedor *"
             type="tel"
+           
             ><template v-slot:prepend>
               <q-icon name="call" />
             </template>
           </q-input>
 
-          <q-input filled v-model="address" label="Direccion del Proveedor *"
+          <q-input
+            filled
+            v-model="address"
+            label="Direccion del Proveedor *" 
             ><template v-slot:prepend>
               <q-icon name="location_on" />
             </template>
@@ -63,7 +67,13 @@
             </template>
           </q-input>
 
-          <!-- <q-file filled use-chips v-model="image" label="Imagen del Producto">
+          
+          <q-file
+            filled
+            use-chips
+            v-model="image"
+            label="Imagen del Producto"
+          >
             <template v-slot:prepend>
               <q-icon name="cloud_upload" />
             </template>
@@ -115,35 +125,6 @@ export default {
       phone,
       image,
 
-      async onSubmit() {
-        try {
-          const formData = new FormData();
-          formData.append("name", name.value);
-          formData.append("email", email.value);
-          formData.append("address", address.value);
-          formData.append("city", city.value);
-          formData.append("phone", phone.value);
-          formData.append("image", image.value);
-          const response = await api.post("provider/create", formData);
-
-          $q.notify({
-            message: "Proveedor agregado",
-            color: "positive",
-            position: "top",
-          });
-          providerStore.cargando();
-
-          router.push("provider");
-        } catch (error) {
-          $q.notify({
-            message: "Error al agregar el proveedor",
-            color: "negative",
-            position: "top",
-          });
-          console.log(error);
-        }
-      },
-
       onReset() {
         name.value = "";
         email.value = "";
@@ -152,6 +133,31 @@ export default {
         phone.value = "";
         image.value = [];
       },
+
+      async onSubmit() {
+        try {
+           const formData = new FormData();
+          formData.append("name", name.value);
+          formData.append("email", email.value);
+          formData.append("address", address.value);
+          formData.append("city", city.value);
+          formData.append("phone", phone.value);
+          formData.append("image", image.value);
+          await api.post("provaider/create", formData);
+          $q.notify({
+            message: "Proveedor agregado",
+            color: "positive",
+            position: "top",
+          });
+          provaiderStore.cargando();
+          onReset();
+          // router.push("/provaider");
+        } catch (error) {
+          console.log(error);
+        }
+      },
+
+     
     };
   },
 };
