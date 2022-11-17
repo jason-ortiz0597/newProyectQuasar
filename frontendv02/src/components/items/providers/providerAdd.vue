@@ -6,7 +6,7 @@
           <q-input
             filled
             v-model="name"
-            label="Nombre del del Proveedor *"
+            label="Nombre del Proveedor *"
             hint="Mínimo 3, Máximo 30 caracteres"
             lazy-rules
             :rules="[
@@ -24,10 +24,11 @@
             v-model="email"
             label="Correo del Proveedor *"
             type="email"
-           
-            ><template v-slot:prepend>
+            >
+            <template v-slot:prepend>
               <q-icon name="email" />
             </template>
+            
           </q-input>
 
           <q-input
@@ -35,16 +36,12 @@
             v-model="phone"
             label="Telefono del Proveedor *"
             type="tel"
-           
             ><template v-slot:prepend>
               <q-icon name="call" />
             </template>
           </q-input>
 
-          <q-input
-            filled
-            v-model="address"
-            label="Direccion del Proveedor *" 
+          <q-input filled v-model="address" label="Direccion del Proveedor *"
             ><template v-slot:prepend>
               <q-icon name="location_on" />
             </template>
@@ -66,17 +63,11 @@
             </template>
           </q-input>
 
-          
-          <q-file
-            filled
-            use-chips
-            v-model="image"
-            label="Imagen del Producto"
-          >
+          <!-- <q-file filled use-chips v-model="image" label="Imagen del Producto">
             <template v-slot:prepend>
               <q-icon name="cloud_upload" />
             </template>
-          </q-file>
+          </q-file> -->
 
           <div>
             <q-btn label="Guardar" type="submit" color="orange" />
@@ -96,16 +87,16 @@
 import { ref } from "vue";
 import { useQuasar } from "quasar";
 import { useRouter } from "vue-router";
-import { useProvaiderStore } from "stores/productStore/provaider-store";
+import { useProviderStore } from "src/stores/productStore/provider-store";
 import { api } from "src/boot/axios";
 
 export default {
-  name: "provaiderAdd",
+  name: "providerAdd",
 
   setup() {
     const $q = useQuasar();
     const router = useRouter();
-    const provaiderStore = useProvaiderStore();
+    const providerStore = useProviderStore();
 
     const name = ref("");
     const email = ref("");
@@ -116,7 +107,7 @@ export default {
 
     return {
       router,
-      provaiderStore,
+      providerStore,
       name,
       email,
       address,
@@ -133,16 +124,22 @@ export default {
           formData.append("city", city.value);
           formData.append("phone", phone.value);
           formData.append("image", image.value);
-          await api.post("provaider/create", formData);
+          const response = await api.post("provider/create", formData);
+
           $q.notify({
             message: "Proveedor agregado",
             color: "positive",
             position: "top",
           });
-          provaiderStore.cargando();
-          onReset();
-          // router.push("/provaider");
+          providerStore.cargando();
+
+          router.push("provider");
         } catch (error) {
+          $q.notify({
+            message: "Error al agregar el proveedor",
+            color: "negative",
+            position: "top",
+          });
           console.log(error);
         }
       },
