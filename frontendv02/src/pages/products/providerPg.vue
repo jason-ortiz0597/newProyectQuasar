@@ -24,7 +24,7 @@
           </q-tab-panel>
 
           <q-tab-panel name="createProvider">
-            <h6>proveedores por productos</h6>
+            <h6>proveedores por productos v2</h6>
           </q-tab-panel>
 
           <q-tab-panel name="movies">
