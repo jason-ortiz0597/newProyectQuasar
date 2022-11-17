@@ -24,7 +24,7 @@
           </q-tab-panel>
 
           <q-tab-panel name="createProvider">
-            <h6>proveedores por productos</h6>
+            <h6>proveedores por productos </h6>
           </q-tab-panel>
 
           <q-tab-panel name="movies">
@@ -32,7 +32,7 @@
               <q-avatar class="shadow-10">
                 <q-icon name="help_outline" />
               </q-avatar>
-              <div class="text-subtitle2 q-mt-lg">APP SIIPI</div>
+              <div class="text-subtitle2 q-mt-lg">APP SIIPI V@</div>
               <div class="text-h6 q-mt-md">Gestion de Proveedores</div>
             </q-card-section>
             <q-card-section>
