@@ -12,7 +12,7 @@
           mobile-arrows
         >
           <q-tab name="createProvider"  icon="fact_check" label="Crear  Proveedores" />
-          <q-tab name="newItem" icon=" groups_2" label="Items Nuevos" />
+          
           <q-tab name="info" icon="tips_and_updates" label="Acerca de... " />
         </q-tabs>
 
@@ -59,11 +59,10 @@
 <script>
 import { ref } from "vue";
 import providerAdd from "src/components/items/providers/providerAdd.vue";
-import addItem from "src/components/items/products/addItem.vue";
+
 export default {
   components: {
     providerAdd,
-    addItem,
   },
   setup() {
     return {

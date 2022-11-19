@@ -11,20 +11,18 @@
             align="justify"
             mobile-arrows
           >
-            <q-tab name="provider"  icon="fact_check" label="Lista de Proveedores" />
-            <q-tab name="createProvider" icon=" groups_2" label="Productos por Proveedores" />
+          
+            <q-tab name="createProduct" icon=" groups_2" label="Crear un Nuevo articulo" />
             <q-tab name="movies" icon="tips_and_updates" label="Acerca de... " />
           </q-tabs>
   
           <q-separator />
   
           <q-tab-panels v-model="tab" animated>
-            <q-tab-panel name="provider">
-              <tableProvider />
-            </q-tab-panel>
+            
   
-            <q-tab-panel name="createProvider">
-              <h6>proveedores por productos</h6>
+            <q-tab-panel name="createProduct">
+              <addItemVue />
             </q-tab-panel>
   
             <q-tab-panel name="movies">
@@ -33,14 +31,13 @@
                   <q-icon name="help_outline" />
                 </q-avatar>
                 <div class="text-subtitle2 q-mt-lg">APP SIIPI</div>
-                <div class="text-h6 q-mt-md">Gestion de Proveedores</div>
+                <div class="text-h6 q-mt-md">Gestion de Productos</div>
               </q-card-section>
               <q-card-section>
                 <div class="text-body2 text-justify">
-                  Este modulo permite gestionar los proveedores de los productos
-                  de la empresa. pordras crear, editar y eliminar los proveedores
-                  de los productos. Como tambien podras ver los proveedores por
-                  productos
+                  Este modulo permite gestionar los productos de la empresa.
+                  pordras crear, editar y eliminar los productos. Como tambien
+                  podras ver los proveedores por productos
                 </div>
               </q-card-section>
               <q-card-section>
@@ -59,14 +56,14 @@
   
   <script>
   import { ref } from "vue";
-  import tableProvider from "src/components/items/providers/tableProvider.vue";
+  import addItemVue from "src/components/items/products/addItem.vue";
   export default {
     components: {
-      tableProvider,
+      addItemVue,
     },
     setup() {
       return {
-        tab: ref("provider"),
+        tab: ref("createProduct"),
       };
     },
   };

@@ -40,7 +40,7 @@ const menuList = [
     icon: "fa-solid fa-seedling",
     label: "Productos",
     separator: true,
-    to: "provider",
+    to: "product",
   },
   
  
